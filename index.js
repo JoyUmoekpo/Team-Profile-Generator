@@ -42,8 +42,8 @@ function questions(answers) {
             name: "office",
             message: "What is your office number?"
         }
-    ]).then(function (res) {
-        console.log(res)
+    ]).then(function (response) {
+        console.log(response);
     }
     )
 }
