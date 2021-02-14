@@ -64,8 +64,11 @@ function intialQuestions(answers) {
             }
             ])       
         }         
-    })
-}
+    }).catch(function(err){
+        console.log("Error Detected!");
+        console.log(err);
+    });
+};
 
 
 
