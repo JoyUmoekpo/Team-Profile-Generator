@@ -32,12 +32,12 @@ function intialQuestions(answers) {
         },
         {
             type: "list",
-            name: "position",
-            message: "What is your position?",
+            name: "role",
+            message: "What is your role here?",
             choices: ["Engineer", "Intern", "Manager"]
         }
-    ]).then(function ({position}) {
-        if (position === "Manager") {
+    ]).then(function ({role}) {
+        if (role === "Manager") {
             return inquirer.prompt([
                     {
                         type: "input",
@@ -46,7 +46,7 @@ function intialQuestions(answers) {
                     }
             ])
         }
-        else if (position === "Engineer") {
+        else if (role === "Engineer") {
             return inquirer.prompt([        
                 {
                     type: "input",
@@ -55,7 +55,7 @@ function intialQuestions(answers) {
                 }
             ])
         }
-        else if (position === "Intern") {
+        else if (role === "Intern") {
             return inquirer.prompt([{
                 type: "input",
                 name: "school",
@@ -74,7 +74,6 @@ function htmlFile() {
     const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title>Team Profile Page</title>
     </head>
