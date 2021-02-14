@@ -1,17 +1,21 @@
-//Jest and Inquirer
+//NPM Modules
 const jest = require("jest");
 const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
 
-//Requiring other files
+//Constructors
 const Employee = require("./lib/employee");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const Manager = require("./lib/manager");
 
+//Global Variables
+const Team = [];
+
 //Inquirer Prompt Questions
 function questions(answers) {
-    return inquirer.prompt([
-        {
+    return inquirer.prompt([{
             type: "input",
             name: "name",
             message: "What is your name?"
@@ -44,8 +48,7 @@ function questions(answers) {
         }
     ]).then(function (response) {
         console.log(response);
-    }
-    )
+    }).then()
 }
 
 questions();
