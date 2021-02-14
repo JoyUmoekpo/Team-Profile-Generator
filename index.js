@@ -14,22 +14,11 @@ const Manager = require("./lib/manager");
 const Team = [];
 
 //Inquirer Prompt Questions
-function questions(answers) {
+function intialQuestions(answers) {
     return inquirer.prompt([{
             type: "input",
             name: "name",
             message: "What is your name?"
-        },
-        {
-            type: "list",
-            name: "position",
-            message: "What is your position?",
-            choices: ["Engineer", "Intern", "Manager"]
-        },
-        {
-            type: "input",
-            name: "email",
-            message: "What is your email?"
         },
         {
             type: "input",
@@ -38,17 +27,46 @@ function questions(answers) {
         },
         {
             type: "input",
-            name: "github",
-            message: "What is your GitHub profile name?"
+            name: "email",
+            message: "What is your email?"
         },
         {
-            type: "input",
-            name: "office",
-            message: "What is your office number?"
+            type: "list",
+            name: "position",
+            message: "What is your position?",
+            choices: ["Engineer", "Intern", "Manager"]
         }
-    ]).then(function (response) {
-        console.log(response);
-    }).then()
+    ]).then(function ({position}) {
+        if (position === "Manager") {
+            return inquirer.prompt([
+                    {
+                        type: "input",
+                        name: "office",
+                        message: "What is your office number?"
+                    }
+            ])
+        }
+        else if (position === "Engineer") {
+            return inquirer.prompt([        
+                {
+                    type: "input",
+                    name: "github",
+                    message: "What is your GitHub profile name?"
+                }
+            ])
+        }
+        else if (position === "Intern") {
+            return inquirer.prompt([{
+                type: "input",
+                name: "school",
+                message: "What school do you attend?"
+
+            }
+            ])       
+        }         
+    })
 }
 
-questions();
+
+
+intialQuestions();
